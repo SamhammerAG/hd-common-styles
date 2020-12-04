@@ -1,4 +1,6 @@
 # hd-common-styles
+[![npm](https://img.shields.io/npm/v/@samhammer/hd-common-styles.svg)](https://www.npmjs.com/package/@samhammer/hd-common-styles)
+
 Common styles for HD projects
 
 ## Publishing
