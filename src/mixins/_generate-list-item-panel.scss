@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+@mixin generate-list-item-panel($_container_class: "", $_icon: "", $_showIcon: false) {
+    @include generate-sidebar-header($_container_class, $_icon, $_showIcon) {
+        .sidebar-section-content {
+            @include grid-column(16);
+            
+            .ticket-list-item-container {
+                @include add-row-effects-n-color();
+
+                // grid-container is used to give the div a size
+                @include grid-container();
+    
+                .ticket-list-item {
+                    @include grid-column(16);
+
+                    div.content {
+                        @include grid-column(15);
+                    }
+                }
+            }
+        }
+
+        @content;
+    }
+}
+
+

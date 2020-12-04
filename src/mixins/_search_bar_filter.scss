@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/// Renders a set of buttons with no background images.
+/// The available space is equally divided between the buttons.
+///
+/// @group features
+///
+/// @name search bar filter
+///
+/// @argument {$filterButtonCount}
+///     the amount of buttons to render (also defines the width)
+///
+/// @example scss
+///   .element {
+///     @include search-bar-filter(4);
+///   }
+///
+
+@mixin search-bar-filter($filterButtonCount, $tab-mode: false) {
+    @include grid-column($filterButtonCount);
+
+    li {
+        @include grid-column(16 / $filterButtonCount);
+
+        float: right;
+
+        div {
+            display: block;
+            background-color: $color-searchbar-filter;
+            height: $grid-size * 4;
+            border-left: $border-definition-light;
+
+            @if ($tab-mode) {
+                border-top-left-radius: $grid-size;
+                border-top-right-radius: $grid-size;
+                background-color: $color-searchbar-filter-tabmode;
+            }
+
+            &:hover {
+                background-color: $color-primary;
+            }
+
+            &.selected {
+                background-color: $color-primary;
+                cursor: default;
+            }
+        }
+    }
+}

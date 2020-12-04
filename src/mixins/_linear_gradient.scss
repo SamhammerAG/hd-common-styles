@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/// Adds an linear gradient to the element.
+/// no vendor prefixes needed, thats the job of autoprefixer
+///
+/// @group effects
+///
+/// @name linear gradient
+///
+/// @argument {color (Hex)}
+///   color to be used, only one color needed
+///
+/// @example scss
+///   .element {
+///     @include linear-gradient(#123456);
+///   }
+///
+/// @example css
+///   .element {
+///     background: linear-gradient(180deg, #123456, #336655);
+///   }
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+
+@mixin linear-gradient($givenColor, $mix-level:5%) {
+    // TODO calculate saturation change via hue (0-360 while 0 = red see W3C Specs https://www.w3.org/TR/css3-color/#hsl-color )
+    //$shifted: _calculate_color_shift($color, $color-mix-sun);
+
+    $sun: scale-color(mix($color-mix-sun, $givenColor, 30%), $saturation: $mix-level);
+    $shadow: scale-color($color: mix($color-mix-shadow, $givenColor, 30%), $saturation: $mix-level *-1);
+    //$sun: _calculate_color_shift($color, $color-mix-sun);
+    //$shadow: _calculate_color_shift($color, $color-mix-shadow);
+    background: linear-gradient(180deg, $sun, $shadow); /* W3C */
+}

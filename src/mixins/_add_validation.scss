@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/// Adds validation styles to Elements.
+///
+/// @group features
+///
+/// @name Add validation
+///
+/// @argument {class (string)} optional
+///   name of the base class
+///
+/// @example scss
+///   .element {
+///     @include add-validation();
+///   }
+///
+/// @example css
+///   .element {
+///     border: 1px solid #123456 !important;
+///     background-color: #123456 !important;
+///   }
+
+$validation-class-name: ".form-control-notvalid";
+
+@mixin _shorthand() {
+    border: $border-definition-error !important;
+    background-color: $color-bg-error !important;
+}
+
+@mixin add-validation($class: false, $sublevel:false) {
+    @if ($class and $sublevel) {
+        #{$validation-class-name} {
+            #{$class} {
+                @include _shorthand();
+            }
+        }
+    }
+    @else if($class) {
+        #{$class}#{$validation-class-name} {
+            @include _shorthand();
+        }
+    }
+    @else {
+        @include _shorthand();
+    }
+}

@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/// Creates a smaller line than 'generic-table-main-line' with the same properties
+///
+/// @group features
+///
+/// @name add non breakable line
+///
+/// @example scss
+///   .element {
+///     @include generic-table-line();
+///   }
+///
+
+@mixin generic-table-line() {
+    @include generic-table-main-line();
+    padding: 0 $grid-size $grid-size $grid-size;
+    font-size: $font-size-small;
+    color: $color-font-secondary;
+}

@@ -1,0 +1,99 @@
+@charset "UTF-8";
+/// generates the sidebar header.
+///
+/// @group controls
+///
+/// @name generate sidebar header
+///
+/// @argument {$_icon (url)}
+///   icon url of the icon to be used
+///
+/// @example scss
+///
+///   @include generate-sidebar-header(url('icon.svg') {
+///
+///     Add CSS for your sidebar control here
+///
+///   }
+///
+/// @example css
+///   .sidebar {
+///         .title bar...
+///
+///         your CSS Code
+///   }
+
+
+@mixin generate-sidebar-header($_container_class, $_icon:"", $_collapsible: false) {
+    .sidebar {
+        #{$_container_class} {
+            .area-title {
+                @include grid-container();
+
+                padding: 0 $grid-size * 2;
+
+                height: $grid-size * 4.5;
+                line-height: $grid-size * 4.5;
+                color: $color-sidebar-base;
+                font-size: $font-size-large;
+
+                background-color: $color-sidebar-control-bg;
+                border-bottom: $border-definition-light;
+
+                @if $_collapsible {
+                    cursor: pointer;
+
+                    .up {
+                        background-image: $image-sidebar-up;
+                        background-size: $grid-size * 3 $grid-size * 3;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        width: $grid-size * 3;
+                        height: $grid-size * 4.5;
+                        float: right;
+                    }
+
+                    .down {
+                        background-image: $image-sidebar-down;
+                        background-size: $grid-size * 3 $grid-size * 3;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        width: $grid-size * 3;
+                        height: $grid-size * 4.5;
+                        float: right;
+                    }
+                }
+
+                .header-icon {
+                    width: $grid-size * 3;
+                    float: left;
+                    background-image: $_icon;
+                    background-size: $grid-size * 3 $grid-size * 3;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    margin-right: $grid-size;
+                }
+
+                .header-text {
+                    @include text-overflow();
+                    float: left;
+                    width: calc(100% - #{$grid-size * 10.5});
+                    padding-right: $grid-size;
+                }
+
+                .add {
+                    background-image: $image-sidebar-add;
+                    background-size: $grid-size * 2.5 $grid-size * 2.5;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    width: $grid-size * 2.5;
+                    height: $grid-size * 4.5;
+                    float: left;
+                    margin-right: $grid-size;
+                }
+            }
+
+            @content;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/// Models a div to display a block with top and bottom paddings and 
+/// italic text in it's center.
+/// 
+///
+/// @group features
+///
+/// @name no results block italic
+///
+/// @example scss
+///   .element {
+///     @include no-results-block-italic();
+///   }
+///
+
+@mixin no-results-block-italic() {
+    @include grid-column(16);
+    position: relative;
+    font-style: italic;
+    padding: $grid-size * 6 0;
+    text-align: center;
+    border: $border-definition-light;
+}

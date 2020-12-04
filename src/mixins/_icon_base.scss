@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/// Fixed strange icon-bug.
+///
+/// @example css
+///   .element {
+///     height:...
+///     width:...
+///     background-size: contain;
+///     background-repeat: no-repeat;
+///   }
+
+@mixin icon-base ($size) {
+    height: $size;
+    width: $size;
+    background-size: $size $size;
+    background-repeat: no-repeat;
+}

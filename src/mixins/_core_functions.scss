@@ -1,0 +1,7 @@
+@mixin _arrow-dimensions() {
+    display: inline-block;
+    height: $form-control-height;
+    width: $grid-size * 2;
+    line-height: $form-control-height;
+    margin-right: $grid-size;
+}

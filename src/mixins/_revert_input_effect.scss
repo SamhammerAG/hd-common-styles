@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/// removes hover effects from element.
+///
+/// @group features
+///
+/// @name Add effects
+///
+/// @argument {$border (border definition)}
+///   border definition to be used
+///
+/// @argument {$bgcolor (#hex)}
+///   background color to be used
+///
+/// @example scss
+///   .element {
+///     @include revert_input_effect();
+///   }
+///
+/// @example css
+///   .element {
+///   }
+///   .element:hover, .element:focus {
+///     border: ...
+///     background-color:...
+///    }
+
+@mixin revert-input-effect($subclass:null, $border: $border-definition-light, $bgcolor: $color-readonly) {
+    &:focus {
+        border: $border;
+        background-color: $bgcolor;
+
+        @if $subclass != null and str_length($subclass) > 0 {
+            #{$subclass} {
+                color: inherit;
+            }
+        }
+    }
+
+    &:hover {
+        border: $border;
+        background-color: $bgcolor;
+
+        @if $subclass != null and str_length($subclass) > 0 {
+            #{$subclass} {
+                color: inherit;
+            }
+        }
+    }
+}

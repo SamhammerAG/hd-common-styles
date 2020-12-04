@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/// includes styles to handle text overflow.
+///
+/// @group features
+///
+/// @name text overflow
+///
+/// @example scss
+///   .element {
+///     @include text_overflow();
+///   }
+///
+/// @example css
+///   .element {
+///      overflow: hidden;
+///      text-overflow: ellipsis;
+///      white-space: nowrap;
+///   }
+///
+
+@mixin text-overflow() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

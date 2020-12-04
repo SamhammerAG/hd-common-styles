@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/// Creates a line for the generic table which uses all space possible within the defined paddings
+/// and does not break, but instead ends with ellipsis.
+///
+/// @group features
+///
+/// @name add non breakable line
+///
+/// @example scss
+///   .element {
+///     @include generic-table-main-line();
+///   }
+///
+
+@mixin generic-table-main-line() {
+    @include text-overflow();
+    width: 100%;
+    float: left;
+    padding: $grid-size;
+}

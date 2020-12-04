@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/// Adds a shadow-line to the bottom of an element.
+///
+/// @group features
+///
+/// @name add-bottom-shadow
+///
+/// @example scss
+///   .element {
+///     @include add-bottom-shadow();
+///   }
+///
+
+@mixin add-bottom-shadow() {
+    background-image: $image-shadow;
+    background-repeat: repeat-x;
+    background-position: bottom;
+}

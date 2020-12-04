@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/// Renders an info block for searches. 
+/// The text is displayed centered and italic.
+///
+/// @group features
+///
+/// @name search info italic
+///
+/// @argument {$topBottomPadding}
+///   the padding between the text and the blocks top and bottom, default: $grid-size * 6
+///
+/// @example scss
+///   .element {
+///     @include info-block-italic();
+///   }
+///
+
+@mixin info-block-italic($topBottomPadding: $grid-size*6) {
+    position: relative;
+    font-style: italic;
+    padding-top: $topBottomPadding;
+    padding-bottom: $topBottomPadding;
+    text-align: center;
+}

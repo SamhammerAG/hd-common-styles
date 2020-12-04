@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/// Adds hover effects to input fields.
+///
+/// @group features
+///
+/// @name Add effects
+///
+/// @argument {subclass (string)} optional
+///   name of the subclass class
+///
+/// @example scss
+///   .element {
+///     @include input_effect();
+///   }
+///
+/// @example css
+///   .element {
+///   }
+///   .element:hover, .element:focus {
+///     border: ...
+///     background-color:...
+///    }
+
+@mixin input-effect($subclass:null) {
+    &:focus {
+        border: $border-definition-highlight;
+        background-color: lighten($color-content-input, 45%);
+        color: $color-font-base-color;
+
+
+        @if $subclass != null and str_length($subclass) > 0 {
+            #{$subclass} {
+                color: $color-primary;
+            }
+        }
+    }
+
+    &:hover {
+        border: $border-definition-highlight;
+        background-color: $color-input-highlight;
+
+        @if $subclass != null and str_length($subclass) > 0 {
+            #{$subclass} {
+                color: $color-primary;
+            }
+        }
+    }
+}

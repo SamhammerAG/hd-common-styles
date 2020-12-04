@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/// Adds hover effects to input fields.
+///
+/// @group features
+///
+/// @name word break
+///
+/// @example scss
+///   .element {
+///     @include word_break();
+///   }
+///
+/// @example css
+///   .element {
+///      word-break: break-word; /* Chrome & Safari */
+///      word-wrap: break-word; /* Firefox */
+///   }
+///
+
+@mixin word-break() {
+    word-break: break-word; /* Chrome & Safari */
+    word-wrap: break-word; /* Firefox */
+}

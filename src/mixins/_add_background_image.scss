@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/// Adds a centered background image to the element.
+///
+/// @group features
+///
+/// @name add background image
+///
+/// @argument {path (string)}
+///   path to the image
+///
+/// @example scss
+///   .element {
+///     @include add-background-image($variable-for-image-path);
+///   }
+///
+/// @example css
+///   .element {
+///     background-image: url('../content/svg/cool_picture.svg');
+///     background-repeat: no-repeat;
+///     background-position: center;
+///     background-size: contain;
+///   }
+
+@mixin add-background-image($path, $size:100% 100%) {
+    background-image: $path;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $size;
+}

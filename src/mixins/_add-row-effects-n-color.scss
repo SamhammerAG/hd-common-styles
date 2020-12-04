@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/// Adds highlighting effects and alternating color.
+///
+/// @group features
+///
+/// @name Add validation
+///
+/// @argument {class (string)} optional
+///   name of the base class
+///
+/// @example scss
+///   .element {
+///     @include add-row-effects-n-color();
+///   }
+///
+/// @example css
+///   .element:nth-of-type(even) {
+///     background-color: #123456;
+///   }
+///   .element:nth-of-type(odd) {
+///     background-color: #6789a;
+///   }
+///   .element:hover {
+///     background-color: #123456;
+///   }
+
+@mixin add-row-effects-n-color($use-hover: true) {
+    &:nth-of-type(odd) {
+        background-color: $color-table-row-even;
+    }
+
+    &:nth-of-type(even) {
+        background-color: $color-table-row-odd;
+    }
+
+    @if $use-hover {
+        &:hover {
+            background-color: $color-row-highlight;
+        }
+    }
+}
